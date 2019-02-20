@@ -12,3 +12,41 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 // Put your code here.
+
+(RESTART)
+@SCREEN 
+D=A
+@Location
+M=D
+(LOOP)
+@KBD 
+D=A 
+@Location 
+D=D-M 
+@RESTART 
+D;JEQ
+@Location
+A=M
+
+@KBD 
+D=M
+@Black
+D;JGT
+@Location
+A=M
+M=0
+@Increment
+0;JMP 
+ 
+
+(Black) 
+@Location
+A=M
+M=-1
+(Increment)
+@Location
+M=M+1
+@LOOP
+0;JMP 
+
+
